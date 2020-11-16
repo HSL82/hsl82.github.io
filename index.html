@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
     <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.0.1/dist/aframe-extras.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
     <body style="margin : 0px; overflow: hidden;">
-        <a-scene embedded arjs>
-        <a-marker preset="hiro">
-            <a-entity
-            position="0 -1 0"
-            scale="0.05 0.05 0.05"
-            gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-            ></a-entity>
+        <a-scene vr-mode-ui="enabled: false">
+            <a-assets>
+              <a-asset-item id="animated-hiphop" src="models/aj_hiphop/scene.gltf"></a-asset-item>
+            </a-assets>
+        
+            <a-marker preset="hiro">
+        
+            <a-entity id="model" animation-mixer 3dmodel gltf-model="#animated-hiphop" scale=".01 .01 .01" position="0 0 0"  rotation="0 0 0">
+              <!-- <a-plane width="2" height="2" metalness="1" shadow="receive: true" material="opacity: 0.07; transparent: true"
+                position="0 0 0" rotation="-90 0 0" geometry="">
+              </a-plane> -->
+            </a-entity>
         </a-marker>
-        <a-entity camera></a-entity>
-        </a-scene>
+            <!-- <a-entity id="animationPlayer" gltf-model="#animated-girl" scale=".80 .80 .80" position="0.3 0 0"></a-entity> -->
+            <a-entity camera></a-entity>
+          </a-scene>
     </body>
 </html>
