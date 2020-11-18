@@ -1,26 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.0.1/dist/aframe-extras.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
-    <body style="margin : 0px; overflow: hidden;">
-        <a-scene vr-mode-ui="enabled: false">
+  <style>
+    body {
+      background-color: grey;
+    }
+  </style>
+  <body style="margin: 0px; overflow: hidden">
+    <a-scene vr-mode-ui="enabled: false">
+      <a-assets>
+        <a-asset-item
+          id="animated-hiphop"
+          src="models/teen_talk/scene.gltf"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-marker preset="hiro">
+        <a-entity
+          id="model"
+          animation-mixer
+          3dmodel
+          gltf-model="#animated-hiphop"
+          scale="5 5 5"
+          position="0 0 0"
+          rotation="0 0 0"
+        >
+          <a-plane
+            width="2"
+            height="2"
+            metalness="1"
+            shadow="receive: true"
+            material="opacity: 0.07; transparent: true"
+            position="0 0 0"
+            rotation="-90 0 0"
+            geometry=""
+          >
+          </a-plane>
+        </a-entity>
+      </a-marker>
+      <a-entity
+        id="animationPlayer"
+        gltf-model="#animated-girl"
+        scale=".80 .80 .80"
+        position="0.3 0 0"
+      ></a-entity>
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <!-- <a-scene vr-mode-ui="enabled: false">
             <a-assets>
               <a-asset-item id="animated-hiphop" src="models/aj_hiphop/scene.gltf"></a-asset-item>
             </a-assets>
         
-            <a-marker preset="hiro">
-        
-            <a-entity id="model" animation-mixer 3dmodel gltf-model="#animated-hiphop" scale=".01 .01 .01" position="0 0 0"  rotation="0 0 0">
-              <!-- <a-plane width="2" height="2" metalness="1" shadow="receive: true" material="opacity: 0.07; transparent: true"
-                position="0 0 0" rotation="-90 0 0" geometry="">
-              </a-plane> -->
+            <a-entity id="animationPlayer" animation-mixer gltf-model="./models/girl/scene.gltf" scale=".80 .80 .80" position="0 0 0">
+                <a-plane width="2" height="2" metalness="1" shadow="receive: true"
+                    material="opacity: 0.07; transparent: true" position="0 0 0" rotation="-90 0 0" geometry="">
+                </a-plane>
             </a-entity>
-        </a-marker>
-            <!-- <a-entity id="animationPlayer" gltf-model="#animated-girl" scale=".80 .80 .80" position="0.3 0 0"></a-entity> -->
-            <a-entity camera></a-entity>
-          </a-scene>
-    </body>
+        
+            <a-entity id="model" animation-mixer 3dmodel gltf-model="#animated-hiphop" scale=".01 .01 .01">
+              
+            </a-entity>
+            <a-plane width="2" height="2" metalness="1" shadow="receive: true" material="opacity: 0.07; transparent: true"
+                position="0 0 0" rotation="-90 0 0" geometry="">
+              </a-plane>
+            <a-entity camera position="0 1 3"></a-entity>
+          </a-scene> -->
+  </body>
 </html>
