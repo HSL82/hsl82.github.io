@@ -9,49 +9,45 @@
     />
     <meta aframe-injected="" name="mobile-web-app-capable" content="yes" />
     <meta aframe-injected="" name="theme-color" content="black" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link href="style.css" rel="stylesheet" />
     <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="register.js"></script>
   </head>
 
-  <body style="margin: 0px; overflow: hidden">
+  <body>
     <a-scene
-      embedded=""
-      color-space="sRGB"
-      shadow="type: pcfsoft"
-      renderer="gammaOutput: true, physicallyCorrectLights: true"
-      arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3"
-      inspector=""
-      keyboard-shortcuts=""
-      screenshot=""
-      vr-mode-ui=""
-      device-orientation-permission-ui=""
+      id="animated-marker"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: color_and_matrix; matrixCodeType: 3x3;"
     >
       <a-assets>
         <a-asset-item
-          id="animated-hiphop"
-          src="gltf_v2/Export_animtion_Gltf_1122.gltf"
+          id="animated-asset"
+          src="gltf_v3/Export_animtion_Gltf_1122_v2.gltf"
         ></a-asset-item>
       </a-assets>
 
       <a-marker type="pattern" url="./pattern-marker.patt">
         <a-entity
-          id="model"
-          animation-mixer
+          id="animationPlayer"
           3dmodel
-          gltf-model="#animated-hiphop"
+          gltf-model="#animated-asset"
           scale="6 6 6"
           position="0 0 0"
           rotation="-90 0 0"
         >
         </a-entity>
       </a-marker>
-      <a-entity
-        id="animationPlayer"
-        gltf-model="#animated-girl"
-        scale=".80 .80 .80"
-        position="0.3 0 0"
-      ></a-entity>
       <a-entity camera></a-entity>
     </a-scene>
   </body>
