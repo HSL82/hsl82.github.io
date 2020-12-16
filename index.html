@@ -15,32 +15,55 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <link href="style.css" rel="stylesheet" />
-    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <link href="style.css?1" rel="stylesheet" />
+    <script src="js/aframe-v1.0.3.min.js"></script>
+    <script src="js/aframe-extras.loaders.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="register.js"></script>
   </head>
 
   <body>
+    <div id="cover">
+      <img id="banner_top" src="images/banner_top.jpg" />
+      <img id="banner_bottom" src="images/banner_bottom.jpg" />
+    </div>
+
     <a-scene
-      id="animated-marker"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui
       embedded
+      vr-mode-ui="enabled: false"
+      shadow="type: pcfsoft"
+      renderer="gammaOutput: true, physicallyCorrectLights: true"
+      device-orientation-permission-ui
       arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: color_and_matrix; matrixCodeType: 3x3;"
     >
       <a-assets>
         <a-asset-item
           id="animated-asset"
-          src="gltf_v3/Export_animtion_Gltf_1122_v2.gltf"
+          src="model/1216_teentalk_export.gltf"
         ></a-asset-item>
       </a-assets>
 
-      <a-marker type="pattern" url="./pattern-marker.patt">
+      <!-- <a-entity
+        id="animationPlayer"
+        3dmodel
+        gltf-model="#animated-asset"
+        animation-mixer
+        scale="6 6 6"
+        position="0 0 0"
+        rotation="-90 0 0"
+      >
+      </a-entity> -->
+
+      <a-marker
+        type="pattern"
+        url="./pattern-marker.patt"
+        material=""
+        arjs-anchor=""
+        arjs-hit-testing=""
+      >
         <a-entity
           id="animationPlayer"
           3dmodel
+          animation-mixer
           gltf-model="#animated-asset"
           scale="6 6 6"
           position="0 0 0"
@@ -50,5 +73,6 @@
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
+    <script src="js/script.js"></script>
   </body>
 </html>
