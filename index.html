@@ -27,8 +27,11 @@
       <img id="banner_bottom" src="images/banner_bottom.jpg" />
     </div>
 
+    <div id="loading">
+      <img src="images/preloader.svg" />
+    </div>
+
     <a-scene
-      embedded
       vr-mode-ui="enabled: false"
       shadow="type: pcfsoft"
       renderer="gammaOutput: true, physicallyCorrectLights: true"
@@ -47,13 +50,14 @@
         3dmodel
         gltf-model="#animated-asset"
         animation-mixer
-        scale="6 6 6"
-        position="0 0 0"
-        rotation="-90 0 0"
+        scale="3 3 3"
+        position="0 0 -2"
+        rotation="0 0 0"
       >
       </a-entity> -->
 
       <a-marker
+        id="animated-marker"
         type="pattern"
         url="./pattern-marker.patt"
         material=""
@@ -62,17 +66,16 @@
       >
         <a-entity
           id="animationPlayer"
-          3dmodel
-          animation-mixer
           gltf-model="#animated-asset"
           scale="3 3 3"
           position="0 0 0"
           rotation="-90 0 0"
+          visible="false"
         >
         </a-entity>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
-    <script src="js/script.js"></script>
+    <script defer src="js/script.js"></script>
   </body>
 </html>
