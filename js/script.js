@@ -27,7 +27,7 @@ marker.addEventListener("markerFound", function () {
       player.setAttribute("visible", "true");
       firstVisible = true;
       animationStarted = true;
-    }, 1900);
+    }, 2100);
 
     setTimeout(() => {
       loading.style.display = "none";
