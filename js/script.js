@@ -17,7 +17,7 @@ marker.addEventListener("markerFound", function () {
   console.log("marker found");
   player.setAttribute(
     "animation-mixer",
-    "clip: All Animations; repetitions: 1; timeScale: 1"
+    "clip: All Animations; repetitions: 5; timeScale: 1"
   );
 
   if (!firstVisible) {
@@ -27,11 +27,11 @@ marker.addEventListener("markerFound", function () {
       player.setAttribute("visible", "true");
       firstVisible = true;
       animationStarted = true;
-    }, 700);
+    }, 2500);
 
     setTimeout(() => {
       loading.style.display = "none";
-    }, 3000);
+    }, 2000);
   }
 });
 
