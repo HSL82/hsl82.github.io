@@ -10,7 +10,7 @@ cover.style.display = "block";
 
 player.addEventListener("animation-finished", function () {
   console.log("done");
-  player.setAttribute("animation-mixer", "timeScale: 0");
+  // player.setAttribute("animation-mixer", "timeScale: 0");
 });
 
 marker.addEventListener("markerFound", function () {
