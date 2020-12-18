@@ -31,7 +31,7 @@ marker.addEventListener("markerFound", function () {
 
     setTimeout(() => {
       loading.style.display = "none";
-    }, 2000);
+    }, 1500);
   }
 });
 
