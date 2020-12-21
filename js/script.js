@@ -15,10 +15,7 @@ player.addEventListener("animation-finished", function () {
 
 marker.addEventListener("markerFound", function () {
   console.log("marker found");
-  player.setAttribute(
-    "animation-mixer",
-    "clip: All Animations; repetitions: 5; timeScale: 1"
-  );
+  if (animationStarted) player.setAttribute("animation-mixer", "timeScale: 1");
 
   if (!firstVisible) {
     loading.style.display = "flex";
@@ -27,11 +24,15 @@ marker.addEventListener("markerFound", function () {
       player.setAttribute("visible", "true");
       firstVisible = true;
       animationStarted = true;
-    }, 2500);
+      player.setAttribute(
+        "animation-mixer",
+        "clip: All Animations; repetitions: -1; timeScale: 1"
+      );
+    }, 1500);
 
     setTimeout(() => {
       loading.style.display = "none";
-    }, 1500);
+    }, 1000);
   }
 });
 
