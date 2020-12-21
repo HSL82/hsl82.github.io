@@ -28,11 +28,12 @@ marker.addEventListener("markerFound", function () {
         "animation-mixer",
         "clip: All Animations; repetitions: -1; timeScale: 1"
       );
+      loading.style.display = "none";
     }, 3000);
 
-    setTimeout(() => {
-      loading.style.display = "none";
-    }, 2500);
+    // setTimeout(() => {
+    //   loading.style.display = "none";
+    // }, 2500);
   }
 });
 
